@@ -22,8 +22,8 @@ export const Header = () => {
         animate={{
           WebkitBackgroundClip: "text",
           backgroundImage: [
-            "linear-gradient(0deg, #f9d423 0%, #ff4e50 100%)",
-            "linear-gradient(360deg, #f9d423 0%, #ff4e50 100%)",
+            "linear-gradient(0deg, #f7ff00 0%, #db36a4 100%)",
+            "linear-gradient(360deg, #f7ff00 0%,#db36a4 100%)",
           ],
           WebkitTextFillColor: "transparent",
         }}

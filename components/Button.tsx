@@ -14,7 +14,7 @@ export const Button = ({ onClick, text, icon, className }: ButtonProps) => {
     <button
       onClick={onClick}
       className={css(
-        tw`text-white font-normal md:text-base text-sm lowercase py-2 md:px-4 px-3 inline-flex items-center`,
+        tw`text-white font-normal md:text-base text-sm lowercase py-2 md:px-4 px-3 flex items-center`,
         className
       )}
     >
