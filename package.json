@@ -11,11 +11,14 @@
     "@emotion/css": "^11.0.0-next.12",
     "@emotion/react": "^11.0.0-next.12",
     "@emotion/styled": "^11.0.0-next.12",
+    "@types/react-copy-to-clipboard": "^4.3.0",
     "framer-motion": "^2.3.0",
     "next": "latest",
     "react": "16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "16.13.1",
-    "react-icons": "^3.10.0"
+    "react-icons": "^3.10.0",
+    "use-debounce": "^3.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

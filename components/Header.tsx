@@ -22,8 +22,8 @@ export const Header = () => {
         animate={{
           WebkitBackgroundClip: "text",
           backgroundImage: [
-            "linear-gradient(0deg, #f7ff00 0%, #db36a4 100%)",
-            "linear-gradient(360deg, #f7ff00 0%,#db36a4 100%)",
+            "linear-gradient(0deg, #f7ff00 0%, #db36a4 90%)",
+            "linear-gradient(360deg, #f7ff00 10%,#db36a4 90%)",
           ],
           WebkitTextFillColor: "transparent",
         }}
@@ -34,7 +34,10 @@ export const Header = () => {
         }}
         className={css(
           tw`text-5xl md:text-6xl pr-0.5 inline-flex tracking-tighter font-black leading-none`,
-          {}
+          {
+            filter: "saturate(170%)"
+
+          }
         )}
       >
         Encodio
@@ -45,7 +48,7 @@ export const Header = () => {
           tw`text-xl flex-row flex-wrap flex md:text-2xl md:pt-3 pt-1 tracking-tighter md:tracking-tight font-bold text-white`
         )}
       >
-        <div>Anti copy-paste text &nbsp;</div>
+        <div>Anti copy-paste text&nbsp;</div>
         <div className={css(tw`relative`)}>
           <AnimatePresence>
             {textisEncoded && (

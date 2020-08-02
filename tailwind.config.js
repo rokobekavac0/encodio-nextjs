@@ -10,8 +10,8 @@ module.exports = {
         "18": "4.5rem",
       },
       colors: {
-        primary: "#e99916",
-        secundary: "#eb3a4f",
+        primary: "#ffa412",
+        secundary: "#f00a71",
       },
     },
   },

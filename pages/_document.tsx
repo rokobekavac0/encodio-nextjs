@@ -8,7 +8,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { extractCritical } from '@emotion/server'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx)
     const page = ctx.renderPage()
     const styles = extractCritical(page.html)
@@ -20,13 +20,13 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <style
-            data-emotion-css={this.props.ids.join(' ')}
-            dangerouslySetInnerHTML={{ __html: this.props.css }}
+            data-emotion-css={(this.props as any).ids.join(' ')}
+            dangerouslySetInnerHTML={{ __html: (this.props as any).css }}
           />
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
         </Head>
-        <body>
+        <body style={{ backgroundColor: 'black' }}>
           <Main />
           <NextScript />
         </body>
