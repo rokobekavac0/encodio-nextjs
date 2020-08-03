@@ -1,9 +1,5 @@
-import {
-  isLowerCase,
-  isUpperCase,
-  LETTERS_CAP,
-  LETTERS_SML,
-} from "./api_utils";
+import { isLowerCase, isUpperCase, LETTERS_CAP, LETTERS_SML } from "./api_utils";
+import { ExpandSelf } from "./arrExpandSelf";
 
 function valdateEncode(string: string) {
   let isAny = false;
@@ -31,13 +27,12 @@ export interface IEncodeStringRet {
   encodedStr: string;
 }
 
-export function encodeString({
-  text,
-  numCodeI,
-}: IEncodeStringInput): IEncodeStringRet {
+export function encodeString({ text, numCodeI }: IEncodeStringInput): IEncodeStringRet {
   let matchingChars = 1;
   let lastEncoded = 0;
-  let numCode = numCodeI;
+
+  let numCode = ExpandSelf<number>(numCodeI, 6);
+
   let returnVal = "";
 
   valdateEncode(text);
