@@ -1,9 +1,21 @@
-export const LETTERS_SML = {
+interface ILETTERS_SML {
+  a: string;
+  o: string;
+}
+
+export const LETTERS_SML: ILETTERS_SML = {
   a: "а",
   o: "ο", //, 'о'],
 };
 
-export const LETTERS_CAP = {
+interface ILETTERS_CAP {
+  A: string;
+  B: string;
+  O: string;
+  P: string;
+}
+
+export const LETTERS_CAP: ILETTERS_CAP = {
   A: "А",
   B: "В", //, '𐊂'],
   O: "О", //, 'Օ'],
