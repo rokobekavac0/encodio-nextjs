@@ -11,43 +11,36 @@ export const Header = () => {
   ref.current = textisEncoded;
 
   useEffect(() => {
-    setInterval(() => {
+    let interval = setInterval(() => {
       setTextIsEncoded(!ref.current);
     }, 6000);
+
+    return function cleanup() {
+      clearInterval(interval);
+    };
   }, []);
 
   return (
     <>
       <motion.h1
         animate={{
-          WebkitBackgroundClip: "text",
-          backgroundImage: [
-            "linear-gradient(0deg, #f7ff00 0%, #db36a4 90%)",
-            "linear-gradient(360deg, #f7ff00 10%,#db36a4 90%)",
-          ],
-          WebkitTextFillColor: "transparent",
+          backgroundImage: ["linear-gradient(0deg, #f7ff00 0%, #db36a4 90%)", "linear-gradient(360deg, #f7ff00 10%,#db36a4 90%)"],
         }}
         transition={{
           loop: Infinity,
           ease: "linear",
           duration: 7,
         }}
-        className={css(
-          tw`text-5xl md:text-6xl pr-0.5 inline-flex tracking-tighter font-black leading-none`,
-          {
-            filter: "saturate(170%)"
-
-          }
-        )}
+        className={css(tw`text-5xl md:text-6xl pr-0.5 inline-flex tracking-tighter font-black leading-none`, {
+          filter: "saturate(170%)",
+          WebkitTextFillColor: "transparent",
+          WebkitBackgroundClip: "text",
+        })}
       >
         Encodio
       </motion.h1>
 
-      <div
-        className={css(
-          tw`text-xl flex-row flex-wrap flex md:text-2xl md:pt-3 pt-1 tracking-tighter md:tracking-tight font-bold text-white`
-        )}
-      >
+      <div className={css(tw`text-xl flex-row flex-wrap flex md:text-2xl md:pt-3 pt-1 tracking-tighter md:tracking-tight font-bold text-white`)}>
         <div>Anti copy-paste text&nbsp;</div>
         <div className={css(tw`relative`)}>
           <AnimatePresence>
