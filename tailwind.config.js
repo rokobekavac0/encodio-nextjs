@@ -10,7 +10,12 @@ module.exports = {
         "18": "4.5rem",
       },
       colors: {
-        primary: "#ffa412",
+        primary: {
+          100: "#ffa412",
+          200: "#813500",
+        },
+
+        footerBlack: "#111111",
         secundary: "#f00a71",
       },
     },
