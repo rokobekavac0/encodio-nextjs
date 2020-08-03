@@ -9,7 +9,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { Faq } from "../components/Faq";
 import { useState, useEffect, useRef } from "react";
 import { useDebouncedCallback, useDebounce } from "use-debounce";
-import { beautifyError } from "../utils/errorButify";
+import { beautifyError } from "../utils/errorBeautify";
 import { Footer } from "../components/Footer";
 import { Spinner } from "../components/Spinner";
 
@@ -45,7 +45,6 @@ const Index = () => {
     }
     debouncedInputValue &&
       (async () => {
-        // setEncodedData("");
         try {
           const req = await fetch(`${window.location.origin}/api/encode`, {
             body: JSON.stringify({ data: debouncedInputValue }),
@@ -66,7 +65,7 @@ const Index = () => {
 
   // for preventing spam clicking download button
   const [debouncedDownaloadButtonCallback] = useDebouncedCallback((value) => {
-    downloadTxtFile("d", "test.txt");
+    downloadTxtFile(encodedData as string, "encoded.txt");
   }, 1000);
 
   return (
