@@ -29,6 +29,13 @@ const Index = () => {
   const [error, setError] = useState<boolean | null>(null);
   const inputref = useRef<HTMLTextAreaElement>(null);
   const [debouncedInputValue] = useDebounce(inputref.current?.value, 500);
+  const [debouncedLoading] = useDebounce(inputref.current?.value, 500, { leading: true });
+  useEffect(() => {
+    setIsSearching(true);
+    if (inputref.current?.value === "") {
+      setIsSearching(false);
+    }
+  }, [debouncedLoading]);
 
   useEffect(() => {
     setIsSearching(true);
@@ -38,7 +45,7 @@ const Index = () => {
     }
     debouncedInputValue &&
       (async () => {
-        setEncodedData("");
+        // setEncodedData("");
         try {
           const req = await fetch(`${window.location.origin}/api/encode`, {
             body: JSON.stringify({ data: debouncedInputValue }),
