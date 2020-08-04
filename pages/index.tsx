@@ -12,6 +12,7 @@ import { useDebouncedCallback, useDebounce } from "use-debounce";
 import { beautifyError } from "../utils/errorBeautify";
 import { Footer } from "../components/Footer";
 import { Spinner } from "../components/Spinner";
+import { Textarea } from "../components/Textarea";
 
 const downloadTxtFile = (str: string, name: string) => {
   const element = document.createElement("a");
@@ -85,38 +86,27 @@ const Index = () => {
           <div className={css(tw`w-full pt-6 `)}>
             <div className={css(tw`md:grid grid-cols-2 col-gap-9`)}>
               <div>
-                <label htmlFor="inputD" className={css(tw`text-white  font-bold tracking-normal`)}>
-                  Input text
-                </label>
-
-                <textarea
-                  id="inputD"
+                <Textarea
+                  id={"inputD"}
+                  labelText={"Input text"}
+                  placeHolder={"Type or paste text"}
+                  showSpinner={false}
                   value={input}
-                  ref={inputref}
-                  onChange={(e) => {
-                    setInput(e.target.value);
-                  }}
-                  placeholder={"Type or paste some text"}
-                  className={css(tw`shadow resize-none appearance-none tracking-normal mt-2 leading-5 h-32 md:h-40 border bg-black w-full py-2 px-3 text-white font-mono mb-3 rounded-none`)}
-                ></textarea>
+                  onChange={(e) => setInput(e.target.value)}
+                  inputRef={inputref}
+                ></Textarea>
               </div>
               <div>
-                <label htmlFor="encoded" className={css(tw`text-white font-bold tracking-normal`)}>
-                  Output:{" "}
-                </label>
-                <div className={css(tw`relative`)}>
-                  <Spinner show={isSearching} className={css(tw`absolute  top-4 text-green-500 right-0`)} />
-                  <textarea
-                    id="encoded"
-                    readOnly
-                    value={encodedData as string}
-                    placeholder={"Here you should see encoded text..."}
-                    className={css(
-                      tw`shadow appearance-none resize-none placeholder-gray-400 mt-2 h-32 md:h-40 border bg-black w-full py-2 px-3 text-white font-mono mb-3 leading-tight focus:outline-none focus:shadow-none`,
-                      error ? tw`text-red-700` : tw``
-                    )}
-                  ></textarea>
-                </div>
+                <Textarea
+                  id={"encoded"}
+                  hasError={error ?? false}
+                  labelText={"Output"}
+                  isReadOnly={true}
+                  hasSpinner={true}
+                  showSpinner={isSearching}
+                  value={encodedData as string}
+                  placeHolder={"Here you should see encoded text"}
+                ></Textarea>
               </div>
             </div>
             <div
