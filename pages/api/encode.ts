@@ -12,8 +12,6 @@ function encodeHandler(req: NextApiRequest, res: NextApiResponse) {
   switch (method) {
     case "POST":
       try {
-        console.log(process.env.NUM_CODE?.split(" ").map((e) => parseInt(e)));
-        console.log(process.env.NUM_CODE);
         if (!parsedBody.data) throw "no data in body";
         const { encodedStr }: IEncodeStringRet = encodeString({
           text: parsedBody.data,
