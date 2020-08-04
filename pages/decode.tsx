@@ -5,11 +5,10 @@ import { SwithPage } from "../components/SwitchPage";
 import { Faq } from "../components/Faq";
 import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "use-debounce";
-import { beautifyError } from "../utils/errorBeautify";
 import { Footer } from "../components/Footer";
 import { Spinner } from "../components/Spinner";
 import Highlighter from "react-highlight-words";
-import { NullablePartial } from "../utils/partialNull";
+import { Textarea } from "../components/Textarea";
 
 interface IDecodedData {
   amount?: number | null;
@@ -79,39 +78,34 @@ const DecodePage = () => {
           <div className={css(tw`w-full pt-6 `)}>
             <div className={css(tw`md:grid grid-cols-2 col-gap-9`)}>
               <div>
-                <label htmlFor="inputD" className={css(tw`text-white  font-bold tracking-normal`)}>
-                  Input text
-                </label>
-
-                <textarea
-                  id="inputD"
+                <Textarea
+                  id={"inputD"}
+                  labelText={"Input text"}
+                  placeHolder={"Type or paste text"}
+                  showSpinner={false}
                   value={input}
-                  spellCheck={false}
-                  ref={inputref}
-                  onChange={(e) => {
-                    setInput(e.target.value);
-                  }}
-                  placeholder={"Type or paste some text"}
-                  className={css(tw`shadow resize-none appearance-none tracking-normal mt-2 leading-5 h-32 md:h-40 border bg-black w-full py-2 px-3 text-white font-mono mb-3 rounded-none`)}
-                ></textarea>
+                  onChange={(e) => setInput(e.target.value)}
+                  inputRef={inputref}
+                ></Textarea>
               </div>
               <div>
                 <label htmlFor="encoded" className={css(tw`text-white font-bold tracking-normal`)}>
                   Output:{" "}
                 </label>
                 <div className={css(tw`relative`)}>
-                  <Spinner show={isSearching} className={css(tw`absolute   top-4 text-green-500 right-0`)} />
-                  <div className={css(tw`font-mono h-32 md:h-40 overflow-y-scroll overflow-x-hidden py-2 px-3 mb-3 border-gray-100 mt-2 border `)}>
+                  <Spinner show={isSearching} className={css(tw`absolute   top-2 text-green-500 right-3`)} />
+                  <div className={css(tw`font-mono h-32 pr-10 md:h-40 overflow-y-scroll break-words py-2 pl-3 mb-3 border-gray-100 mt-2 border `)}>
                     <Highlighter
-                      className={css(tw``)}
+                      className={css(!input ? tw`text-gray-400` : "")}
                       searchWords={decodedData?.encodedWords ?? []}
                       highlightStyle={{ background: "linear-gradient(45deg, #f7ff0066 0%, #db36a466 100%)", color: "white" }}
                       autoEscape={true}
-                      textToHighlight={input}
+                      textToHighlight={input ? input : "Decoded output"}
                     />
                   </div>
                   {/* ,<pre>{JSON.stringify(decodedData, null, 2)}</pre> */}
                 </div>
+                <div className={css(tw`bg-footerBlack h-7`)}></div>
               </div>
             </div>
           </div>
