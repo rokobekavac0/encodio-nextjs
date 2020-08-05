@@ -9,8 +9,9 @@ import { Footer } from "../components/Footer";
 import { Spinner } from "../components/Spinner";
 import Highlighter from "react-highlight-words";
 import { Textarea } from "../components/Textarea";
+import { Stats } from "../components/Stats";
 
-interface IDecodedData {
+export interface IDecodedData {
   amount?: number | null;
   isEncryped?: number | null;
   encodedWords?: Array<string> | null;
@@ -25,6 +26,7 @@ const DecodePage = () => {
   const inputref = useRef<HTMLTextAreaElement>(null);
   const [debouncedInputValue] = useDebounce(inputref.current?.value, 500);
   const [debouncedLoading] = useDebounce(inputref.current?.value, 500, { leading: true });
+
   useEffect(() => {
     setIsSearching(true);
     if (inputref.current?.value === "") {
@@ -59,8 +61,6 @@ const DecodePage = () => {
       })();
   }, [debouncedInputValue]);
 
-  // for preventing spam clicking download button
-
   return (
     <div className={css(tw`bg-black`)}>
       <div className={css(tw` max-w-screen-xl text-white pt-8 md:pt-10 md:px-6 px-8 flex flex-col ml-auto mr-auto`)}>
@@ -93,19 +93,20 @@ const DecodePage = () => {
                   Output:{" "}
                 </label>
                 <div className={css(tw`relative`)}>
-                  <Spinner show={isSearching} className={css(tw`absolute   top-2 text-green-500 right-3`)} />
-                  <div className={css(tw`font-mono h-32 pr-10 md:h-40 overflow-y-scroll break-words py-2 pl-3 mb-3 border-gray-100 mt-2 border `)}>
+                  <Spinner show={isSearching} className={css(tw`absolute top-2 text-secundaryFooter right-0 sm:mr-5 mr-5`)} />
+                  <div className={css(tw`font-mono h-32 pr-10 font-bold sm:text-base text-sm md:h-40 overflow-y-scroll break-words py-2 pl-3 mb-3 border-gray-100 mt-2 border `)}>
                     <Highlighter
                       className={css(!input ? tw`text-gray-400` : "")}
                       searchWords={decodedData?.encodedWords ?? []}
-                      highlightStyle={{ background: "linear-gradient(45deg, #f7ff0066 0%, #db36a466 100%)", color: "white" }}
+                      highlightStyle={{ background: "linear-gradient(45deg, #f7ff0088 0%, #db36a488 100%)", color: "white" }}
                       autoEscape={true}
                       textToHighlight={input ? input : "Decoded output"}
                     />
                   </div>
-                  {/* ,<pre>{JSON.stringify(decodedData, null, 2)}</pre> */}
                 </div>
-                <div className={css(tw`bg-footerBlack h-7`)}></div>
+                <div className={css(tw`bg-white text-black rounded-sm `)}>
+                  <Stats data={decodedData!}></Stats>
+                </div>
               </div>
             </div>
           </div>
