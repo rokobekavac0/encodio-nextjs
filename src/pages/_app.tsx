@@ -4,21 +4,18 @@ import { AppPropsType } from "next/dist/next-server/lib/utils";
 import { css } from "@emotion/css";
 import tw from "@tailwindcssinjs/macro";
 import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
+import Router from "next/router";
+import * as gtag from "../lib/gtag";
 
 const pageVariants = {
   pageInitial: {
-    // backgroundColor: "black",
-    // filter: `invert()`,
     opacity: 0.2,
   },
   pageAnimate: {
-    // backgroundColor: "transparent",
-    // filter: ``,
     opacity: 1,
   },
   pageExit: {
-    // backgroundColor: "black",
-    // filter: ``,
     opacity: 0,
   },
 };
@@ -31,6 +28,15 @@ const pageMotionProps = {
 };
 
 export default function MyApp({ Component, pageProps, router }: AppPropsType) {
+  useEffect(() => {
+    const handleRouteChange = (url: any) => {
+      gtag.pageview(url);
+    };
+    Router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      Router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -39,7 +45,7 @@ export default function MyApp({ Component, pageProps, router }: AppPropsType) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       </Head>
       <AnimatePresence exitBeforeEnter>
-        <motion.div transition={{ duration: 0.3 }} key={router.route} {...pageMotionProps}>
+        <motion.div transition={{ duration: 0.2 }} key={router.route} {...pageMotionProps}>
           <Component className={css(tw`bg-black text-primary-100`)} {...pageProps} />
         </motion.div>
       </AnimatePresence>
