@@ -31,6 +31,7 @@ const Index = () => {
   const inputref = useRef<HTMLTextAreaElement>(null);
   const [debouncedInputValue] = useDebounce(inputref.current?.value, 500);
   const [debouncedLoading] = useDebounce(inputref.current?.value, 500, { leading: true });
+
   useEffect(() => {
     setIsSearching(true);
     if (inputref.current?.value === "") {
