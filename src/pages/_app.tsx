@@ -42,7 +42,7 @@ export default function MyApp({ Component, pageProps, router }: AppPropsType) {
       <Head>
         <title>Encodio</title>
         <meta name="description" content="Encodio is anti-copy-paste text encoder..." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <AnimatePresence exitBeforeEnter>
         <motion.div transition={{ duration: 0.2 }} key={router.route} {...pageMotionProps}>
