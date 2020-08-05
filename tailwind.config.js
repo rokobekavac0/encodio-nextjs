@@ -16,7 +16,9 @@ module.exports = {
         },
 
         footerBlack: "#111111",
+        footerBlacker: "#030303",
         secundary: "#f00a71",
+        secundaryFooter: "#ff1980",
       },
     },
   },
