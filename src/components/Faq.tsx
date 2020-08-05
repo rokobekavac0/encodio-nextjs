@@ -27,7 +27,7 @@ export const Faq = ({}: FaqProps) => {
             <strong className={css(tw`font-bold text-white`)}>Step 5.</strong> Paste the 'encoded' text into our <a>decoder</a>
           </li>
           <li>
-            <strong className={css(tw`font-bold text-white`)}>Step 6.</strong> Now you should see if that text was copied <span className={css(tw`font-normal text-white`)}></span>from you
+            <strong className={css(tw`font-bold text-white`)}>Step 6.</strong> Now you should see if that text has been copied <span className={css(tw`font-normal text-white`)}></span>from you
           </li>
         </ul>
       </div>
@@ -40,6 +40,9 @@ export const Faq = ({}: FaqProps) => {
           <li>
             <strong className={css(tw`font-bold text-white pr-1`)}>{">"}</strong> Encodio doesn't store <strong className={css(tw`font-bold text-white pr-1`)}> any</strong>encoded/decoded data{" "}
             <span className={css(tw`text-white`)}>(the text you pasted/entered)</span>
+          </li>
+          <li>
+            <strong className={css(tw`font-bold text-white pr-1`)}>{"*"}</strong> percentage is only an estimate based on the similarity of the patterns
           </li>
         </ul>
       </div>
