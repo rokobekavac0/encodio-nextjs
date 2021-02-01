@@ -11,7 +11,6 @@ import { useState, useEffect, useRef } from "react";
 import { useDebouncedCallback, useDebounce } from "use-debounce";
 import { beautifyError } from "../utils/errorBeautify";
 import { Footer } from "../components/Footer";
-import { Spinner } from "../components/Spinner";
 import { Textarea } from "../components/Textarea";
 
 const downloadTxtFile = (str: string, name: string) => {
@@ -87,27 +86,10 @@ const Index = () => {
           <div className={css(tw`w-full pt-6 `)}>
             <div className={css(tw`md:grid grid-cols-2 col-gap-9`)}>
               <div>
-                <Textarea
-                  id={"inputD"}
-                  labelText={"Input text"}
-                  placeHolder={"Type or paste text"}
-                  showSpinner={false}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  inputRef={inputref}
-                ></Textarea>
+                <Textarea id={"inputD"} labelText={"Input text"} placeHolder={"Type or paste text"} showSpinner={false} value={input} onChange={(e) => setInput(e.target.value)} inputRef={inputref}></Textarea>
               </div>
               <div>
-                <Textarea
-                  id={"encoded"}
-                  hasError={error ?? false}
-                  labelText={"Output"}
-                  isReadOnly={true}
-                  hasSpinner={true}
-                  showSpinner={isSearching}
-                  value={encodedData as string}
-                  placeHolder={"Here you should see encoded text"}
-                ></Textarea>
+                <Textarea id={"encoded"} hasError={error ?? false} labelText={"Output"} isReadOnly={true} hasSpinner={true} showSpinner={isSearching} value={encodedData as string} placeHolder={"Here you should see encoded text"}></Textarea>
               </div>
             </div>
             <div
@@ -124,13 +106,7 @@ const Index = () => {
               </div>
               <div>
                 <Tooltip disabled={error || encodedData === ""} className={css(tw`bg-white w-40 text-black text-sm font-medium`)} text={"📁 Started download!"} durationAfterLastClick={1300}>
-                  <Button
-                    disabled={error || encodedData === ""}
-                    text={"Downaload as .txt"}
-                    className={css(tw`bg-secundary hover:bg-opacity-75`)}
-                    onClick={debouncedDownaloadButtonCallback as any}
-                    icon={<MdFileDownload size="1rem" />}
-                  />
+                  <Button disabled={error || encodedData === ""} text={"Downaload as .txt"} className={css(tw`bg-secundary hover:bg-opacity-75`)} onClick={debouncedDownaloadButtonCallback as any} icon={<MdFileDownload size="1rem" />} />
                 </Tooltip>
               </div>
             </div>
