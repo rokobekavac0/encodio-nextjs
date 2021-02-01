@@ -6,13 +6,13 @@ import tw from "@tailwindcssinjs/macro";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useEffect } from "react";
 import Router from "next/router";
-import * as gtag from "../lib/gtag";
+import * as gtag from "@/lib/gtag";
 
 const pageVariants = {
   pageInitial: {
     opacity: 0.2,
     transition: {
-      duration: 0.1,
+      duration: 0.05,
     },
   },
   pageAnimate: {
@@ -20,7 +20,7 @@ const pageVariants = {
   },
   pageExit: {
     transition: {
-      duration: 0.1,
+      duration: 0.05,
     },
     opacity: 0,
   },
