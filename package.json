@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:base-css": "tailwindcss build ./styles/tailwind.base.css -o ./styles/base.css",
+    "build:base-css": "tailwindcss build ./src/styles/tailwind.base.css -o ./src/styles/base.css",
     "cypress": "cypress open"
   },
   "dependencies": {

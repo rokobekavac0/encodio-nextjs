@@ -35,7 +35,6 @@ export default class MyDocument extends Document {
             }}
           />
           <style data-emotion-css={(this.props as any).ids.join(" ")} dangerouslySetInnerHTML={{ __html: (this.props as any).css }} />
-          <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         </Head>
         <body style={{ backgroundColor: "black" }}>
           <Main />
