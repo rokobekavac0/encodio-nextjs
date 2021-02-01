@@ -41,44 +41,8 @@ export const Header = () => {
       </motion.h1>
 
       <div className={css(tw`text-xl flex-row flex-wrap flex md:text-2xl md:pt-3 pt-1 tracking-tighter md:tracking-tight font-bold text-white`)}>
-        <div>Anti copy-paste text&nbsp;</div>
-        <div className={css(tw`relative`)}>
-          <AnimatePresence>
-            {textisEncoded && (
-              <motion.div
-                initial={{ y: "-100%", opacity: 0.2 }}
-                animate={{ y: "0px", opacity: 1 }}
-                exit={{ y: "100%", opacity: 0 }}
-                className={css(tw`text-white  absolute`)}
-                transition={{
-                  // delay: 0.2,
-                  duration: 0.4,
-                }}
-              >
-                encoder
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {!textisEncoded && (
-              <motion.div
-                initial={{ y: "-100%", opacity: 0.2 }}
-                animate={{ y: "0px", opacity: 1 }}
-                exit={{ y: "100%", opacity: 0 }}
-                className={css(tw`text-white absolute `)}
-                transition={{
-                  duration: 0.4,
-                  // delay: 0.2
-                }}
-              >
-                decoder
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <div className={css(tw`md:ml-20 md:pl-3.5 ml-16 pl-2.5`)}>
-            <ColoredDot />
-          </div>
-        </div>
+        <div>Detect copied* text in an instant</div>
+        <ColoredDot />
       </div>
     </>
   );
