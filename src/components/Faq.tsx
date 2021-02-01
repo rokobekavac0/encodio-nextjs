@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "@emotion/css";
 import tw from "@tailwindcssinjs/macro";
 import { Footer } from "@/components/Footer";
+import Link from "next/link";
 interface FaqProps {}
 
 export const Faq = ({}: FaqProps) => {
@@ -26,7 +27,10 @@ export const Faq = ({}: FaqProps) => {
             <strong className={css(tw`font-bold text-white`)}> {">"} </strong> You came across your supposedly encoded text <span className={css(tw`text-white`)}>(or variation of it)</span>?
           </li>
           <li>
-            <strong className={css(tw`font-bold text-white`)}>Step 5.</strong> Paste the 'encoded' text into our <a>decoder</a>
+            <strong className={css(tw`font-bold text-white`)}>Step 5.</strong> Paste the 'encoded' text into our{" "}
+            <Link href="/decode" passHref>
+              <a className={css(tw`underline`)}>decoder</a>
+            </Link>
           </li>
           <li>
             <strong className={css(tw`font-bold text-white`)}>Step 6.</strong> Now you should see if that text has been copied <span className={css(tw`font-normal text-white`)}></span>from you
