@@ -3,7 +3,7 @@ import "../styles/base.css";
 import { AppPropsType } from "next/dist/next-server/lib/utils";
 import { css } from "@emotion/css";
 import tw from "@tailwindcssinjs/macro";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useEffect } from "react";
 import Router from "next/router";
 import * as gtag from "../lib/gtag";
@@ -11,14 +11,20 @@ import * as gtag from "../lib/gtag";
 const pageVariants = {
   pageInitial: {
     opacity: 0.2,
+    transition: {
+      duration: 0.1,
+    },
   },
   pageAnimate: {
     opacity: 1,
   },
   pageExit: {
+    transition: {
+      duration: 0.1,
+    },
     opacity: 0,
   },
-};
+} as Variants;
 
 const pageMotionProps = {
   initial: "pageInitial",
