@@ -9,7 +9,7 @@ export const SwithPage = ({ page }: SwitchPageProps) => {
   return (
     <div>
       Need to{" "}
-      <strong className={css(tw`font-bold`)}>
+      <strong className={css(tw`font-bold underline`)}>
         <Link href={page === "decode" ? "/decode" : "/"}>
           <a>{page}</a>
         </Link>
