@@ -1,9 +1,6 @@
 import React from "react";
 import tw from "@tailwindcssinjs/macro";
 import { css } from "@emotion/css";
-import { motion } from "framer-motion";
-import { GoHeart } from "react-icons/go";
-
 interface FooterProps {}
 
 export const Footer: React.FC<FooterProps> = ({}) => {

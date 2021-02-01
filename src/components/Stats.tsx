@@ -1,5 +1,5 @@
 import React from "react";
-import { IDecodedData } from "../pages/decode";
+import { IDecodedData } from "@/hooks/useDecode";
 import { css } from "@emotion/css";
 import tw from "@tailwindcssinjs/macro";
 
@@ -11,15 +11,7 @@ export const Stats: React.FC<StatsProps> = ({ data }) => {
   const isData: () => boolean = () => !!data;
 
   const StatsIsEncoded = () => {
-    return isData() ? (
-      data?.isEncryped ? (
-        <span className={css(tw`text-green-500`)}>Text is encoded.</span>
-      ) : (
-        <span className={css(tw`text-red-600`)}>Text doesn't appear to be encoded.</span>
-      )
-    ) : (
-      <span>No text to evaluate</span>
-    );
+    return isData() ? data?.isEncryped ? <span className={css(tw`text-green-500`)}>Text is encoded.</span> : <span className={css(tw`text-red-600`)}>Text doesn't appear to be encoded.</span> : <span>No text to evaluate</span>;
   };
 
   return (

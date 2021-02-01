@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/css";
 import tw from "@tailwindcssinjs/macro";
-import { Footer } from "./Footer";
+import { Footer } from "@/components/Footer";
 interface FaqProps {}
 
 export const Faq = ({}: FaqProps) => {

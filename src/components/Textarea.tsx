@@ -1,7 +1,7 @@
 import React, { RefObject } from "react";
 import { css } from "@emotion/css";
 import tw from "@tailwindcssinjs/macro";
-import { Spinner } from "./Spinner";
+import { Spinner } from "@/components/Spinner";
 
 interface TextareaProps {
   inputRef?: RefObject<HTMLTextAreaElement>;
@@ -33,11 +33,7 @@ export const Textarea: React.FC<TextareaProps> = ({ id, showSpinner, hasSpinner,
           ref={inputRef}
           onChange={onChange}
           placeholder={placeHolder}
-          className={css(
-            tw`shadow resize-none  sm:text-base text-sm appearance-none font-bold tracking-normal mt-2 py-2 h-32 md:h-40 border bg-black w-full text-white font-mono mb-3 rounded-none`,
-            hasError ? tw`text-red-700` : tw``,
-            hasSpinner ? tw`pl-3 pr-10` : tw` px-3`
-          )}
+          className={css(tw`shadow resize-none  sm:text-base text-sm appearance-none font-bold tracking-normal mt-2 py-2 h-32 md:h-40 border bg-black w-full text-white font-mono mb-3 rounded-none`, hasError ? tw`text-red-700` : tw``, hasSpinner ? tw`pl-3 pr-10` : tw` px-3`)}
         ></textarea>
       </div>
     </>

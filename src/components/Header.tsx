@@ -1,7 +1,7 @@
 import tw from "@tailwindcssinjs/macro";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { css } from "@emotion/css";
-import { ColoredDot } from "./coloredDot";
+import { ColoredDot } from "@/components/coloredDot";
 import { useState, useRef, useEffect } from "react";
 
 export const Header = () => {
